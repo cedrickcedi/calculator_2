@@ -1,8 +1,40 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed';
+  font-weight: light;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #a4aaff, #cea4ff, #a4fff9);
+}
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-grid > button:hover {
+  background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.output {
+  
 }
