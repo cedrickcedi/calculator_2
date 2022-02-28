@@ -35,7 +35,7 @@ body {
   grid-column: span 2; /* specifies a grid item's size and location in a grid layout */
 }
 
-.output {
+.display {
   grid-column: 1 / -1;
   background-color: rgba(0, 0, 0, .70);
   display: flex;
@@ -47,12 +47,12 @@ body {
   word-break: break-all; /* To prevent overflow, word may be broken at any character */
 }
 
-.output .computation {
+.display .computation {
   color: #ffff;
   font-size:  25px;
 }
 
-.output .result {
+.display .result {
   color: #ffff;
   font-size:  45px;
 }
