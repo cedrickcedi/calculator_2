@@ -25,6 +25,10 @@ class Calculator {
     }
 
     chooseOperation(operation) {
+        if (this.calcuresult === '') return
+        if (this.calcucomputation !== '') {
+            this.compute()
+        }
         this.operation = operation
         this.calcucomputation = this.calcuresult
         this.calcuresult = ''
