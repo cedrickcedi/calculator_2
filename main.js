@@ -56,6 +56,22 @@ class Calculator {
     }
     /* parseFloat() method parses a value as a string and returns the first number */
 
+    getDisplayNumber(number) {
+        const stringNumber = number.toString()
+        const integerDigits = parseFloat(stringNumber.split('.')[0])
+        const decimalDigits = stringNumber.split('.')[1]
+        let integerDisplay
+        if (isNaN(integerDigits)) {
+          integerDisplay = ''
+        } else {
+          integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
+        }
+        if (decimalDigits != null) {
+          return `${integerDisplay}.${decimalDigits}`
+        } else {
+          return integerDisplay
+        }
+      }
  
     updateDisplay() {
         this.calcuResult.innerText =
@@ -64,7 +80,7 @@ class Calculator {
       this.calcuComputation.innerText =
         `${this.getDisplayNumber(this.calcuComputation)} ${this.operation}`
     } else {
-      this.previousOperandTextElement.innerText = ''
+      this.calcuComputationText.innerText = ''
     }
   }
 }
