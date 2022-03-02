@@ -11,12 +11,13 @@ body {
 }
 
 .calculator-grid {
-  display: grid; /* Displays an element as a block-level grid container */
+  display: grid; /* wraps all of our different buttons and elements */
   justify-content: center; /* Items are positioned in the center of the container */
   align-content: center; /* Lines are packed toward the center of the flex container */
-  min-height: 100vh;
-  grid-template-columns: repeat(4, 100px); /* Specifies the size(s) of the columns and rows */
-  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  min-height: 100vh; /* the calculator grid will fill 100% of the height all the time */
+  grid-template-columns: repeat(4, 90px); /* Specifies the size(s) of the columns and rows */
+  grid-template-rows: minmax(130px, auto) repeat(5, 90px); 
+  /* For the output screen to grow as large as it needs to and be adaptable to any number of input values */
 }
 
 .calculator-grid > button {
@@ -36,10 +37,10 @@ body {
 }
 
 .output {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /* -1 is the last column */
   background-color: rgba(0, 0, 0, .70);
-  display: flex;
-  align-items: flex-end; /* Items are positioned at the end of the container */
+  display: flex; /* align all the elements inside the container */
+  align-items: flex-end; /* Items are positioned at the right side of the container */
   justify-content: space-around; /* aligns the flexible container's items when the items do not use all available space on the main-axis (horizontally) */
   flex-direction: column; /* specifies the direction of the flexible items. displayed vertically, as a column */
   padding: 10px; /* generate space around an element's content, inside of any defined borders */

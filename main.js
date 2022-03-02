@@ -1,35 +1,47 @@
 import './style.css'
 
-/* constructor enables you to provide any custom initialization that must be done 
-before any other methods can be called on an instantiated object*/
+/*  
+    constructor enables you to provide any custom initialization that must be done 
+    before any other methods can be called on an instantiated object */
 class Calculator {
     constructor (previousOperandText, currentOperandText) {
       this.previousOperandText = previousOperandText
       this.currentOperandText = currentOperandText 
         this.clear()
     }
-    /* When used in an object method, 'this' refers to the object */
+    /*  'this.clear' function is to reset the inputs
+        Storage object of the Web Storage API provides access to the 
+        session storage or local storage for a particular domain. 
+        This allows you to read, add, modify, and delete stored data items */
     
+    //below would be the different operations that the calcu will perform
+
     clear() {
       this.currentOperand = ''
       this.previousOperand = ''
       this.operation = undefined
     }
+    /*  clear() function will clear all variables */
 
     delete() {
       this.currentOperand = this.currentOperand.toString().slice(0, -1)
-    }
+    } 
+    //delete() function for clearing a single number
 
     appendNumber(number) {
       if (number === '.' && this.currentOperand.includes('.')) return 
       this.currentOperand = this.currentOperand.toString() + number.toString() 
     }
-    /* if number is equal to a period and this string includes a period, return (stop) 
-     toString() returns a number as a string 
-     && means 'and' (x < 10 && y > 1) is true 
-     === equal value and equal type, "x === 5" is true */
+    /*  appendNumber(number) function determines what will occur every time a user clicks on a number to add to the display
+    
+        if number is equal to a period and this string includes a period, return (stop) 
+        toString() returns a number as a string
 
-    /* !== is not equal value or not equal type "x !== 5" false */
+        && means 'and' 
+        
+        === equal value and equal type, ex: "x === 5" is true */
+
+    //!== is not equal value or not equal type ex: "x !== 5" false
     chooseOperation(operation) {
       if (this.currentOperand === '') return
       if (this.previousOperand !== '') { 
@@ -39,8 +51,9 @@ class Calculator {
         this.previousOperand = this.currentOperand
         this.currentOperand = ''
     }
+    // chooseOperation(operation) function controls what will happen anytime a user clicks on any operation button
 
-    /* || means "or" (x == 5 || y == 5) is false */
+    // || means "or" (x == 5 || y == 5) is false
     compute() {
         let computation
         const prev = parseFloat(this.previousOperand)
@@ -60,7 +73,8 @@ class Calculator {
     this.operation = undefined
     this.previousOperand = ''
     }
-    /* parseFloat() method parses a value as a string and returns the first number */
+    // compute() takes the values inside the calculator and displays the result
+    // parseFloat() method parses a value as a string and returns the first number
 
     getDisplayNumber(number) {
       const stringNumber = number.toString()
@@ -89,9 +103,11 @@ class Calculator {
       this.previousOperandText.innerText = ''
     }
   }
+  // updateDisplay() function updates the values inside of the output
 }
 
-/* To return all matches (not only the first), use the querySelectorAll() */
+// querySelectorAll() function will allow us to get all elements that match a certain string
+// 'const' It defines a constant variable reference to a value
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
@@ -102,23 +118,24 @@ const currentOperandText = document.querySelector('[data-current-operand]')
 
 const calculator = new Calculator(previousOperandText, currentOperandText)
 
-/* forEach() method calls a function for each element in an array */
+/* forEach() method calls a function for each element in an array 
+  click() method simulates a mouse-click on an element */
 numberButtons.forEach(button => { 
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText)
         calculator.updateDisplay()
     })
 })
-/* => Arrow functions allow us to write shorter function syntax */
+// => Arrow functions allow us to write shorter function syntax
 
-/* innerText Return the text content of an element or node */
+// innerText Return the text content of an element or node
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.chooseOperation(button.innerText) 
         calculator.updateDisplay()
     })
 })
-/*  addEventListener() method attaches an event handler to the specified element */
+//  addEventListener() method attaches an event handler to the specified element
 
 equalsButton.addEventListener('click', button => {
     calculator.compute()
