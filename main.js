@@ -71,6 +71,7 @@ class Calculator {
     this.operation = undefined
     this.previousOperand = ''
     }
+    // switch() statement to determine or change the computation operation
     // compute() takes the values inside the calculator and displays the result
     // parseFloat() method parses a value as a string and returns the first number
 
