@@ -1,7 +1,6 @@
 import './style.css'
 
-/*  
-    constructor enables you to provide any custom initialization that must be done 
+/*  constructor enables you to provide any custom initialization that must be done 
     before any other methods can be called on an instantiated object */
 class Calculator {
     constructor (previousOperandText, currentOperandText) {
@@ -10,23 +9,22 @@ class Calculator {
         this.clear()
     }
     /*  'this.clear' function is to reset the inputs
-        Storage object of the Web Storage API provides access to the 
-        session storage or local storage for a particular domain. 
-        This allows you to read, add, modify, and delete stored data items */
+        Storage object of the Web Storage API provides access to the session storage or local storage for a particular domain. This allows you to read, add, modify, and delete stored data items */
     
     //below would be the different operations that the calcu will perform
 
     clear() {
       this.currentOperand = ''
       this.previousOperand = ''
-      this.operation = undefined
+      this.operation = undefined //undefined property indicates that a variable has not been assigned a value, or not declared at all
     }
-    /*  clear() function will clear all variables */
+    /*  clear() function will clear all values */
 
     delete() {
       this.currentOperand = this.currentOperand.toString().slice(0, -1)
     } 
     //delete() function for clearing a single number
+    //-1 is used to clear out all digits, if 1 is used, there would always be a remaining one digit regardless if you click CE
 
     appendNumber(number) {
       if (number === '.' && this.currentOperand.includes('.')) return 
@@ -34,14 +32,14 @@ class Calculator {
     }
     /*  appendNumber(number) function determines what will occur every time a user clicks on a number to add to the display
     
-        if number is equal to a period and this string includes a period, return (stop) 
+        return (stop)  will stop your function if you add multiple periods, only one period is allowed
         toString() returns a number as a string
 
         && means 'and' 
         
-        === equal value and equal type, ex: "x === 5" is true */
+        === equal value and equal type */
 
-    //!== is not equal value or not equal type ex: "x !== 5" false
+    //!== is not equal value or not equal type
     chooseOperation(operation) {
       if (this.currentOperand === '') return
       if (this.previousOperand !== '') { 
@@ -117,25 +115,27 @@ const previousOperandText = document.querySelector('[data-previous-operand]')
 const currentOperandText = document.querySelector('[data-current-operand]')
 
 const calculator = new Calculator(previousOperandText, currentOperandText)
+//to have all variables operated to the calcu object, we create a calcu constant and set new calcu, then pass everything from constructor going into it, the pass the previous and current operand text element
 
-/* forEach() method calls a function for each element in an array 
-  click() method simulates a mouse-click on an element */
+/* click() method simulates a mouse-click on an element */
 numberButtons.forEach(button => { 
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText)
         calculator.updateDisplay()
     })
 })
+// .updateDisplay method is make sure that the displayed values are constantly updated every time we click on a button on the calculator
 // => Arrow functions allow us to write shorter function syntax
 
 // innerText Return the text content of an element or node
+// for.each statement is to loop over all the different buttons
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.chooseOperation(button.innerText) 
         calculator.updateDisplay()
     })
 })
-//  addEventListener() method attaches an event handler to the specified element
+//  addEventListener() method will invoke something whenever the button is clicked
 
 equalsButton.addEventListener('click', button => {
     calculator.compute()
