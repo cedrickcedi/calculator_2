@@ -26,7 +26,7 @@ class Calculator {
     //delete() function for clearing a single number
     //-1 is used to clear out all digits, if 1 is used, there would always be a remaining one digit regardless if you click CE
 
-    appendNumber(number) {
+   appendNumber(number) {
       if (number === '.' && this.currentOperand.includes('.')) return 
       this.currentOperand = this.currentOperand.toString() + number.toString() 
     }
@@ -40,6 +40,7 @@ class Calculator {
         === equal value and equal type */
 
     //!== is not equal value or not equal type
+    //without chooseOperation() function, data-operation can't function
     chooseOperation(operation) {
       if (this.currentOperand === '') return
       if (this.previousOperand !== '') { 
@@ -52,6 +53,7 @@ class Calculator {
     // chooseOperation(operation) function controls what will happen anytime a user clicks on any operation button
 
     // || means "or" (x == 5 || y == 5) is false
+    //without compute() function, you can only type numbers and operand but no computation
     compute() {
         let computation
         const prev = parseFloat(this.previousOperand)
@@ -75,6 +77,7 @@ class Calculator {
     // compute() takes the values inside the calculator and displays the result
     // parseFloat() method parses a value as a string and returns the first number
 
+    //withoug getDisplayNumber & updateDisplay, you can only click all buttons but no display
     getDisplayNumber(number) {
       const stringNumber = number.toString()
       const integerDigits = parseFloat(stringNumber.split('.')[0])
