@@ -119,7 +119,7 @@ const previousOperandText = document.querySelector('[data-previous-operand]')
 const currentOperandText = document.querySelector('[data-current-operand]')
 
 const calculator = new Calculator(previousOperandText, currentOperandText)
-//to have all variables operated to the calcu object, we create a calcu constant and set new calcu, then pass everything from constructor going into it, the pass the previous and current operand text element
+//to have all variables operated to the calcu object, we create a calcu constant and set new calcu, then pass everything from constructor going into it, then pass the previous and current operand text element
 
 /* click() method simulates a mouse-click on an element */
 numberButtons.forEach(button => { 
