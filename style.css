@@ -32,8 +32,8 @@ body {
   background-color: rgba(255, 255, 255, .9);
 }
 
-.span-two {
-  grid-column: span 2; /* specifies a grid item's size and location in a grid layout */
+.span-three {
+  grid-column: span 3; /* specifies a grid item's size and location in a grid layout */
 }
 
 .output {
@@ -48,12 +48,22 @@ body {
   word-break: break-all; /* To prevent overflow, word may be broken at any character */
 }
 
-.output .previous-operand {
+.output #display {
   color: #ffff;
-  font-size:  25px;
+  font-size:  15px;
 }
 
-.output .current-operand {
+.output #first-number {
   color: #ffff;
-  font-size:  45px;
+  font-size:  15px;
+}
+
+.output #second-number {
+  color: #ffff;
+  font-size:  15px;
+}
+
+.output #pending-operation {
+  color: #ffff;
+  font-size:  15px;
 }
