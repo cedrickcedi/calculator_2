@@ -2,18 +2,28 @@ import './style.css'
 
 let internalDisplay = "";
 
-let firstNumber = "";
-let total = "";
+let firstNumber = 0;
+let secondNumber = 0;
 
 let displayInternalDisplay = document.getElementById("display");
-// let displayFirstNumber = document.getElementById("first-number");
-// let displayTotal = document.getElementById("total");
+let displayFirstNumber = document.getElementById("first-number");
+let displaySecondNumber = document.getElementById("second-number");
 
-document.getElementById("add").onclick = function() {
-        internalDisplay = parseInt (InternalDisplay);
-        internalDisplay = sum;
-        display.innerText = internalDisplay;
-    }
+document.getElementById("add").onclick = function() {  
+    if (firstNumber === 0) {
+        firstNumber = parseInt(internalDisplay);
+        displayFirstNumber.innerText = firstNumber;
+        internalDisplay = "";
+    
+    } else if (firstNumber !== 0) {
+        secondNumber = parseInt(internalDisplay);
+        displaySecondNumber.innerText = secondNumber;
+
+        let sum = firstNumber + secondNumber;
+        firstNumber = sum;
+        displayFirstNumber.innertext = firstNumber;
+    } 
+}
 
 document.getElementById("number1").onclick = function() {
     internalDisplay += "1";
