@@ -67,3 +67,8 @@ body {
   color: #ffff;
   font-size:  15px;
 }
+
+.output #total {
+  color: #ffff;
+  font-size:  25px;
+}

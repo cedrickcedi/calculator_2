@@ -1,10 +1,19 @@
 import './style.css'
 
 let internalDisplay = "";
-let FirstNumber = "";
+
+let firstNumber = "";
+let total = "";
 
 let displayInternalDisplay = document.getElementById("display");
 let displayFirstNumber = document.getElementById("first-number");
+let displayTotal = document.getElementById("total");
+
+document.getElementById("add").onclick = function() {
+        internalDisplay = parseInt (InternalDisplay);
+        internalDisplay += sum;
+        display.innerText = internalDisplay;
+    }
 
 document.getElementById("number1").onclick = function() {
     internalDisplay += "1";
@@ -55,3 +64,4 @@ document.getElementById("number0").onclick = function() {
     internalDisplay += "0";
     display.innerText = internalDisplay;
 }
+
