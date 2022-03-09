@@ -1,10 +1,57 @@
 import './style.css'
 
 let internalDisplay = "";
+let FirstNumber = "";
 
-let display = document.getElementById ("display");
+let displayInternalDisplay = document.getElementById("display");
+let displayFirstNumber = document.getElementById("first-number");
 
 document.getElementById("number1").onclick = function() {
-    display += "1";
-    internalDisplay();
+    internalDisplay += "1";
+    display.innerText = internalDisplay;
+}
+
+document.getElementById("number2").onclick = function() {
+    internalDisplay += "2";
+    display.innerText = internalDisplay;
+}
+
+document.getElementById("number3").onclick = function() {
+    internalDisplay += "3";
+    display.innerText = internalDisplay;
+}
+
+document.getElementById("number4").onclick = function() {
+    internalDisplay += "4";
+    display.innerText = internalDisplay;
+}
+
+document.getElementById("number5").onclick = function() {
+    internalDisplay += "5";
+    display.innerText = internalDisplay;
+}
+
+document.getElementById("number6").onclick = function() {
+    internalDisplay += "6";
+    display.innerText = internalDisplay;
+}
+
+document.getElementById("number7").onclick = function() {
+    internalDisplay += "7";
+    display.innerText = internalDisplay;
+}
+
+document.getElementById("number8").onclick = function() {
+    internalDisplay += "8";
+    display.innerText = internalDisplay;
+}
+
+document.getElementById("number9").onclick = function() {
+    internalDisplay += "9";
+    display.innerText = internalDisplay;
+}
+
+document.getElementById("number0").onclick = function() {
+    internalDisplay += "0";
+    display.innerText = internalDisplay;
 }
