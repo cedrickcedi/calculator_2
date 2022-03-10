@@ -30,8 +30,8 @@ document.getElementById("add").onclick = function() {
 }
 
 document.getElementById("clear").onclick = function() {
-    firstNumber = "";
-    secondNumber = "";
+    firstNumber = 0;
+    secondNumber = 0;
     internalDisplay = "";
 
     displayFirstNumber.innerText = firstNumber;
