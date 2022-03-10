@@ -12,7 +12,7 @@ let displaySecondNumber = document.getElementById("second-number");
 let displayOperand = document.getElementById("operand");
 
 document.getElementById("add").onclick = function() {  
-    //if (internalDisplay === "") return
+    if (internalDisplay === "") return
     if (firstNumber === 0) {
         firstNumber = parseInt(internalDisplay);
         displayInternalDisplay.innerText = "";
@@ -36,7 +36,7 @@ document.getElementById("add").onclick = function() {
 }
 
 document.getElementById("minus").onclick = function() {  
-    //if (internalDisplay === "") return
+    if (internalDisplay === "") return
     if (firstNumber === 0) {
         firstNumber = parseInt(internalDisplay);
         displayInternalDisplay.innerText = "";
