@@ -25,8 +25,8 @@ document.getElementById("add").onclick = function() {
         
         internalDisplay = sum;
         displayInternalDisplay.innerText = internalDisplay;
-        return;
-    } 
+        internalDisplay = "";
+    } if (internalDisplay === "") return;
 }
 
 document.getElementById("clear").onclick = function() {
