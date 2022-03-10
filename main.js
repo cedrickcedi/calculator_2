@@ -12,7 +12,7 @@ let displaySecondNumber = document.getElementById("second-number");
 let displayOperand = document.getElementById("operand");
 
 document.getElementById("add").onclick = function() {  
-    if (internalDisplay === "") return
+    //if (internalDisplay === "") return
     if (firstNumber === 0) {
         firstNumber = parseInt(internalDisplay);
         displayInternalDisplay.innerText = "";
@@ -35,10 +35,33 @@ document.getElementById("add").onclick = function() {
     }
 }
 
+document.getElementById("minus").onclick = function() {  
+    //if (internalDisplay === "") return
+    if (firstNumber === 0) {
+        firstNumber = parseInt(internalDisplay);
+        displayInternalDisplay.innerText = "";
+        displayFirstNumber.innerText = firstNumber;
+        internalDisplay = "";
+        operand = "minus";
+        displayOperand.innerText = operand;
+            
+    } else if (firstNumber !== 0){
+        secondNumber = parseInt(internalDisplay);
+        displaySecondNumber.innerText = secondNumber;
+
+        let difference = firstNumber - secondNumber;
+        firstNumber = difference;
+        displayFirstNumber.innerText = firstNumber;
+        
+        internalDisplay = difference;
+        displayInternalDisplay.innerText = internalDisplay;
+        internalDisplay = "";
+    }
+}
+
 document.getElementById("equals").onclick = function() {
     if (internalDisplay === 0) return
-    if (internalDisplay === "") return
-        if (operand === "add") {      
+       else if (operand === "add") {      
             secondNumber = parseInt(internalDisplay);
             displaySecondNumber.innerText = secondNumber;
 
@@ -49,6 +72,18 @@ document.getElementById("equals").onclick = function() {
             internalDisplay = sum;
             displayInternalDisplay.innerText = internalDisplay;
             internalDisplay = "";
+    } 
+    else if (operand === "minus") {      
+        secondNumber = parseInt(internalDisplay);
+        displaySecondNumber.innerText = secondNumber;
+
+        let difference = firstNumber - secondNumber;
+        firstNumber = difference;
+        displayFirstNumber.innerText = firstNumber;
+    
+        internalDisplay = difference;
+        displayInternalDisplay.innerText = internalDisplay;
+        internalDisplay = "";
     }
 }
 
