@@ -21,7 +21,10 @@ document.getElementById("add").onclick = function() {
 
         let sum = firstNumber + secondNumber;
         firstNumber = sum;
-        displayFirstNumber.innertext = firstNumber;
+        displayFirstNumber.innerText = firstNumber;
+        
+        internalDisplay = sum;
+        displayInternalDisplay.innerText = internalDisplay;
     } 
 }
 
