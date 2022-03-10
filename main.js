@@ -25,8 +25,18 @@ document.getElementById("add").onclick = function() {
         
         internalDisplay = sum;
         displayInternalDisplay.innerText = internalDisplay;
-        internalDisplay = ""; 
+        return;
     } 
+}
+
+document.getElementById("clear").onclick = function() {
+    firstNumber = "";
+    secondNumber = "";
+    internalDisplay = "";
+
+    displayFirstNumber.innerText = firstNumber;
+    displaySecondNumber.innerText = secondNumber;
+    displayInternalDisplay.innerText = internalDisplay;
 }
 
 document.getElementById("number1").onclick = function() {
