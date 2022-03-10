@@ -63,7 +63,7 @@ body {
   font-size:  15px;
 }
 
-.output #pending-operation {
+.output #operand {
   color: #ffff;
   font-size:  15px;
 }

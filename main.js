@@ -4,18 +4,24 @@ let internalDisplay = "";
 
 let firstNumber = 0;
 let secondNumber = 0;
+let operand = "";
 
 let displayInternalDisplay = document.getElementById("display");
 let displayFirstNumber = document.getElementById("first-number");
 let displaySecondNumber = document.getElementById("second-number");
+let displayOperand = document.getElementById("operand");
 
 document.getElementById("add").onclick = function() {  
+    if (internalDisplay === "") return
     if (firstNumber === 0) {
         firstNumber = parseInt(internalDisplay);
+        displayInternalDisplay.innerText = "";
         displayFirstNumber.innerText = firstNumber;
         internalDisplay = "";
-    
-    } else if (firstNumber !== 0) {
+        operand = "add";
+        displayOperand.innerText = operand;
+            
+    } else if (firstNumber !== 0){
         secondNumber = parseInt(internalDisplay);
         displaySecondNumber.innerText = secondNumber;
 
@@ -26,17 +32,36 @@ document.getElementById("add").onclick = function() {
         internalDisplay = sum;
         displayInternalDisplay.innerText = internalDisplay;
         internalDisplay = "";
-    } if (internalDisplay === "") return;
+    }
+}
+
+document.getElementById("equals").onclick = function() {
+    if (internalDisplay === 0) return
+    if (internalDisplay === "") return
+        if (operand === "add") {      
+            secondNumber = parseInt(internalDisplay);
+            displaySecondNumber.innerText = secondNumber;
+
+            let sum = firstNumber + secondNumber;
+            firstNumber = sum;
+            displayFirstNumber.innerText = firstNumber;
+        
+            internalDisplay = sum;
+            displayInternalDisplay.innerText = internalDisplay;
+            internalDisplay = "";
+    }
 }
 
 document.getElementById("clear").onclick = function() {
     firstNumber = 0;
     secondNumber = 0;
     internalDisplay = "";
+    operand = "";
 
     displayFirstNumber.innerText = firstNumber;
     displaySecondNumber.innerText = secondNumber;
     displayInternalDisplay.innerText = internalDisplay;
+    displayOperand.innerText = operand;
 }
 
 document.getElementById("number1").onclick = function() {
