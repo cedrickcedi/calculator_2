@@ -5,11 +5,13 @@ let internalDisplay = "";
 let firstNumber = 0;
 let secondNumber = 0;
 let operand = "";
+let total = "";
 
 let displayInternalDisplay = document.getElementById("display");
 let displayFirstNumber = document.getElementById("first-number");
 let displaySecondNumber = document.getElementById("second-number");
 let displayOperand = document.getElementById("operand");
+let displayTotal = document.getElementById("total");
 
 document.getElementById("add").onclick = function() {  
     if (internalDisplay === "") return
@@ -18,19 +20,18 @@ document.getElementById("add").onclick = function() {
         displayInternalDisplay.innerText = "";
         displayFirstNumber.innerText = firstNumber;
         internalDisplay = "";
-        operand = "add";
+        operand = "+";
         displayOperand.innerText = operand;
             
     } else if (firstNumber !== 0){
         secondNumber = parseInt(internalDisplay);
         displaySecondNumber.innerText = secondNumber;
-
-        let sum = firstNumber + secondNumber;
-        firstNumber = sum;
-        displayFirstNumber.innerText = firstNumber;
         
-        internalDisplay = sum;
-        displayInternalDisplay.innerText = internalDisplay;
+
+        let sum = firstNumber + secondNumber;        
+        total = sum;
+        displayTotal.innerText = total;
+        total = "";
         internalDisplay = "";
     }
 }
@@ -42,28 +43,29 @@ document.getElementById("minus").onclick = function() {
         displayInternalDisplay.innerText = "";
         displayFirstNumber.innerText = firstNumber;
         internalDisplay = "";
-        operand = "minus";
+        operand = "-";
         displayOperand.innerText = operand;
             
     } else if (firstNumber !== 0){
         secondNumber = parseInt(internalDisplay);
         displaySecondNumber.innerText = secondNumber;
-        operand = "minus";
+        operand = "-";
         displayOperand.innerText = operand;
 
         let difference = firstNumber - secondNumber;
         firstNumber = difference;
         displayFirstNumber.innerText = firstNumber;
         
-        internalDisplay = difference;
-        displayInternalDisplay.innerText = internalDisplay;
+        total = difference;
+        displayTotal.innerText = total;
+        total = "";
         internalDisplay = "";
     }
 }
 
 document.getElementById("equals").onclick = function() {
     if (internalDisplay === "") return
-       else if (operand === "add") {      
+       else if (operand === "+") {      
             secondNumber = parseInt(internalDisplay);
             displaySecondNumber.innerText = secondNumber;
 
@@ -71,11 +73,11 @@ document.getElementById("equals").onclick = function() {
             firstNumber = sum;
             displayFirstNumber.innerText = firstNumber;
         
-            internalDisplay = sum;
-            displayInternalDisplay.innerText = internalDisplay;
-            internalDisplay = "";
+            total = sum;
+            displayTotal.innerText = total;
+            total = "";
     } 
-    else if (operand === "minus") {      
+    else if (operand === "-") {      
         secondNumber = parseInt(internalDisplay);
         displaySecondNumber.innerText = secondNumber;
 
@@ -94,11 +96,13 @@ document.getElementById("clear").onclick = function() {
     secondNumber = 0;
     internalDisplay = "";
     operand = "";
+    total = 0;
 
     displayFirstNumber.innerText = firstNumber;
     displaySecondNumber.innerText = secondNumber;
     displayInternalDisplay.innerText = internalDisplay;
     displayOperand.innerText = operand;
+    displayTotal.innerText = total;
 }
 
 document.getElementById("number1").onclick = function() {

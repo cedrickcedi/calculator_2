@@ -16,7 +16,7 @@ body {
   align-content: center; /* Lines are packed toward the center of the flex container */
   min-height: 100vh; /* the calculator grid will fill 100% of the height all the time */
   grid-template-columns: repeat(4, 90px); /* Specifies the size(s) of the columns and rows */
-  grid-template-rows: minmax(130px, auto) repeat(5, 90px); 
+  grid-template-rows: minmax(130px, auto) repeat(6, 90px); 
   /* For the output screen to grow as large as it needs to and be adaptable to any number of input values */
 }
 
@@ -48,9 +48,21 @@ body {
   word-break: break-all; /* To prevent overflow, word may be broken at any character */
 }
 
-.output #display {
+.output2 {
+  grid-column: 1 / -1; /* -1 is the last column */
+  background-color: rgba(0, 0, 0, .70);
+  display: flex; /* align all the elements inside the container */
+  align-items: flex-end; /* Items are positioned at the right side of the container */
+  justify-content: space-around; /* aligns the flexible container's items when the items do not use all available space on the main-axis (horizontally) */
+  flex-direction: column; /* specifies the direction of the flexible items. displayed vertically, as a column */
+  padding: 10px; /* generate space around an element's content, inside of any defined borders */
+  word-wrap: break-word; /* allows long words to be able to be broken and wrap onto the next line. */
+  word-break: break-all; /* To prevent overflow, word may be broken at any character */
+}
+
+.output2 #display {
   color: #ffff;
-  font-size:  25px;
+  font-size:  20px;
 }
 
 .output #first-number {
