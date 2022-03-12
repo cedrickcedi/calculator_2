@@ -48,6 +48,8 @@ document.getElementById("minus").onclick = function() {
     } else if (firstNumber !== 0){
         secondNumber = parseInt(internalDisplay);
         displaySecondNumber.innerText = secondNumber;
+        operand = "minus";
+        displayOperand.innerText = operand;
 
         let difference = firstNumber - secondNumber;
         firstNumber = difference;
@@ -60,7 +62,7 @@ document.getElementById("minus").onclick = function() {
 }
 
 document.getElementById("equals").onclick = function() {
-    if (internalDisplay === 0) return
+    if (internalDisplay === "") return
        else if (operand === "add") {      
             secondNumber = parseInt(internalDisplay);
             displaySecondNumber.innerText = secondNumber;

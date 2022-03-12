@@ -71,4 +71,5 @@ body {
 .output #total {
   color: #ffff;
   font-size:  25px;
+  text-decoration: underline;
 }
