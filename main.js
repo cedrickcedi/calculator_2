@@ -28,13 +28,12 @@ document.getElementById("add").onclick = function() {
         secondNumber = parseInt(internalDisplay);
         displaySecondNumber.innerText = secondNumber;
         
-
         let sum = firstNumber + secondNumber;        
         total = sum;
         displayTotal.innerText = total;
         total = "";
         internalDisplay = "";
-    }
+    } 
 }
 
 document.getElementById("minus").onclick = function() {  
@@ -49,7 +48,7 @@ document.getElementById("minus").onclick = function() {
         operand = "-";
         displayOperand.innerText = operand;
             
-    } else if (firstNumber !== 0){
+    } if (firstNumber !== 0){
         secondNumber = parseInt(internalDisplay);
         displaySecondNumber.innerText = secondNumber;
         operand = "-";
