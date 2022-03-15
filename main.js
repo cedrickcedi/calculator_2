@@ -75,9 +75,11 @@ document.getElementById("equals").onclick = function() {
             firstNumber = sum;
             displayFirstNumber.innerText = firstNumber;
         
-            total = sum;
-            displayTotal.innerText = total;
-            total = "";
+            firstNumber = sum;
+            displayFirstNumber.innerText = firstNumber;
+            internalDisplay = sum;
+            displayInternalDisplay.innerText = internalDisplay;
+            internalDisplay = "";
     
     } else if (operand === "-") {      
         secondNumber = parseInt(internalDisplay);
@@ -87,6 +89,8 @@ document.getElementById("equals").onclick = function() {
         firstNumber = difference;
         displayFirstNumber.innerText = firstNumber;
     
+        firstNumber = difference;
+        displayFirstNumber.innerText = firstNumber;
         internalDisplay = difference;
         displayInternalDisplay.innerText = internalDisplay;
         internalDisplay = "";
