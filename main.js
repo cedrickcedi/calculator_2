@@ -15,14 +15,14 @@ let displayTotal = document.getElementById("total");
 document.getElementById("add").onclick = function() {  
     if (internalDisplay === "") {
         return;
-    } if (firstNumber === 0 && operand !== "-") {
+    } if (firstNumber === 0 && operand === "") {
         firstNumber = parseInt(internalDisplay);
         displayFirstNumber.innerText = firstNumber;
         internalDisplay = "";
         operand = "+";
         displayOperand.innerText = operand;
             
-    } else if (firstNumber !== 0 && operand !== "-"){
+    } else if (firstNumber !== 0 && operand === "+"){
         secondNumber = parseInt(internalDisplay);
         displaySecondNumber.innerText = secondNumber;
         operand = "+";
@@ -33,9 +33,9 @@ document.getElementById("add").onclick = function() {
         displayFirstNumber.innerText = firstNumber;
         internalDisplay = sum;
         displayInternalDisplay.innerText = internalDisplay;
-        internalDisplay = ""; 
-    
-    } if (firstNumber !== 0 && operand === "-"){
+        internalDisplay = "";  
+        
+    } else if (firstNumber !== 0 && operand === "-"){
         secondNumber = parseInt(internalDisplay);
         displaySecondNumber.innerText = secondNumber;
         operand = "+";
