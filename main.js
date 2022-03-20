@@ -12,6 +12,34 @@ let displaySecondNumber = document.getElementById("second-number");
 let displayOperand = document.getElementById("operand");
 let displayTotal = document.getElementById("total");
 
+function add() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "+";
+    displayOperand.innerText = operand;
+    
+    let sum = firstNumber + secondNumber;        
+    firstNumber = sum;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = sum;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";  
+}
+
+function minus(){
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "-";
+    displayOperand.innerText = operand;
+    
+    let difference = firstNumber - secondNumber;        
+    firstNumber = difference;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = difference;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";
+}
+
 document.getElementById("add").onclick = function() {  
     if (internalDisplay === "") {
         return;
@@ -23,30 +51,11 @@ document.getElementById("add").onclick = function() {
         displayOperand.innerText = operand;
             
     } else if (firstNumber !== 0 && operand === "+"){
-        secondNumber = parseInt(internalDisplay);
-        displaySecondNumber.innerText = secondNumber;
-        operand = "+";
-        displayOperand.innerText = operand;
-        
-        let sum = firstNumber + secondNumber;        
-        firstNumber = sum;
-        displayFirstNumber.innerText = firstNumber;
-        internalDisplay = sum;
-        displayInternalDisplay.innerText = internalDisplay;
-        internalDisplay = "";  
-        
+        add();
+
+
     } else if (firstNumber !== 0 && operand === "-"){
-        secondNumber = parseInt(internalDisplay);
-        displaySecondNumber.innerText = secondNumber;
-        operand = "+";
-        displayOperand.innerText = operand;
-        
-        let sum = firstNumber + secondNumber;        
-        firstNumber = sum;
-        displayFirstNumber.innerText = firstNumber;
-        internalDisplay = sum;
-        displayInternalDisplay.innerText = internalDisplay;
-        internalDisplay = "";
+        add();
     }
 }
 
@@ -54,32 +63,24 @@ document.getElementById("minus").onclick = function() {
     if (internalDisplay === "") {
         return
     
-    } if (firstNumber === 0) {
+    } if (firstNumber === 0 && operand === "") {
         firstNumber = parseInt(internalDisplay);
         displayFirstNumber.innerText = firstNumber;
         internalDisplay = "";
         operand = "-";
         displayOperand.innerText = operand;
             
-    } else if (firstNumber !== 0){
-        secondNumber = parseInt(internalDisplay);
-        displaySecondNumber.innerText = secondNumber;
-        operand = "-";
-        displayOperand.innerText = operand;
-        
-        let difference = firstNumber - secondNumber;        
-        firstNumber = difference;
-        displayFirstNumber.innerText = firstNumber;
-        internalDisplay = difference;
-        displayInternalDisplay.innerText = internalDisplay;
-        internalDisplay = "";
+    } else if (firstNumber !== 0 && operand === "-") {
+        minus();
+    }else if (firstNumber !== 0 && operand === "+"){
+        minus();
     }
 }
 
 document.getElementById("equals").onclick = function() {
     if (internalDisplay === "") {
         return;
-        
+
     } else if (operand === "+") {      
             secondNumber = parseInt(internalDisplay);
             displaySecondNumber.innerText = secondNumber;
@@ -90,9 +91,12 @@ document.getElementById("equals").onclick = function() {
         
             firstNumber = sum;
             displayFirstNumber.innerText = firstNumber;
-            internalDisplay = sum;
-            displayInternalDisplay.innerText = internalDisplay;
             internalDisplay = "";
+            displayInternalDisplay.innerText = internalDisplay;
+            operand = "";
+            displayOperand.innerText = operand;
+            secondNumber = "";
+            displaySecondNumber.innerText = secondNumber;
     
     } else if (operand === "-") {      
         secondNumber = parseInt(internalDisplay);
@@ -104,9 +108,12 @@ document.getElementById("equals").onclick = function() {
     
         firstNumber = difference;
         displayFirstNumber.innerText = firstNumber;
-        internalDisplay = difference;
-        displayInternalDisplay.innerText = internalDisplay;
         internalDisplay = "";
+        displayInternalDisplay.innerText = internalDisplay;
+        operand = "";
+        displayOperand.innerText = operand;
+        secondNumber = "";
+        displaySecondNumber.innerText = secondNumber;
     }
 }
 
