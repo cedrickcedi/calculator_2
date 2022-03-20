@@ -24,6 +24,7 @@ function add() {
     internalDisplay = sum;
     displayInternalDisplay.innerText = internalDisplay;
     internalDisplay = "";  
+    operand = "";
 }
 
 function minus(){
@@ -38,23 +39,20 @@ function minus(){
     internalDisplay = difference;
     displayInternalDisplay.innerText = internalDisplay;
     internalDisplay = "";
+    operand = "";
 }
 
 document.getElementById("add").onclick = function() {  
     if (internalDisplay === "") {
         return;
-    } if (firstNumber === 0 && operand === "") {
+    } if (firstNumber === 0) {
         firstNumber = parseInt(internalDisplay);
         displayFirstNumber.innerText = firstNumber;
         internalDisplay = "";
         operand = "+";
         displayOperand.innerText = operand;
             
-    } else if (firstNumber !== 0 && operand === "+"){
-        add();
-
-
-    } else if (firstNumber !== 0 && operand === "-"){
+    } else if (firstNumber !== 0){
         add();
     }
 }
@@ -63,17 +61,15 @@ document.getElementById("minus").onclick = function() {
     if (internalDisplay === "") {
         return
     
-    } if (firstNumber === 0 && operand === "") {
+    } if (firstNumber === 0 ) {
         firstNumber = parseInt(internalDisplay);
         displayFirstNumber.innerText = firstNumber;
         internalDisplay = "";
         operand = "-";
         displayOperand.innerText = operand;
             
-    } else if (firstNumber !== 0 && operand === "-") {
-        minus();
-    }else if (firstNumber !== 0 && operand === "+"){
-        minus();
+    } else if (firstNumber !== 0) {
+        minus();    
     }
 }
 
@@ -86,17 +82,16 @@ document.getElementById("equals").onclick = function() {
             displaySecondNumber.innerText = secondNumber;
 
             let sum = firstNumber + secondNumber;
-            firstNumber = sum;
-            displayFirstNumber.innerText = firstNumber;
+            internalDisplay = sum;
+            displayInternalDisplay.innerText = internalDisplay;
         
             firstNumber = sum;
             displayFirstNumber.innerText = firstNumber;
-            internalDisplay = "";
-            displayInternalDisplay.innerText = internalDisplay;
             operand = "";
             displayOperand.innerText = operand;
-            secondNumber = "";
+            secondNumber = 0;
             displaySecondNumber.innerText = secondNumber;
+            internalDisplay = "";
     
     } else if (operand === "-") {      
         secondNumber = parseInt(internalDisplay);
