@@ -11,6 +11,9 @@ let displayFirstNumber = document.getElementById("first-number");
 let displaySecondNumber = document.getElementById("second-number");
 let displayOperand = document.getElementById("operand");
 
+
+//FUNCTIONS SECTION
+
 function add() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
@@ -71,6 +74,9 @@ function equalsMinus() {
     displaySecondNumber.innerText = secondNumber;
 }
 
+
+//OPERAND SECTION
+
 document.getElementById("add").onclick = function() {  
     if (internalDisplay === "") {
         return;
@@ -126,6 +132,9 @@ document.getElementById("clear").onclick = function() {
     displayInternalDisplay.innerText = internalDisplay;
     displayOperand.innerText = operand;
 }
+
+
+//NUMBER AND OPERAND BUTTONS SECTION
 
 document.getElementById("number1").onclick = function() {
     internalDisplay += "1";
