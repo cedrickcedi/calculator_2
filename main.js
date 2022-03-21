@@ -72,7 +72,7 @@ function minusThenAdd() {
     internalDisplay = "";  
 }
 
-function equalsPlus() {
+function equalsAdd() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
 
@@ -81,11 +81,11 @@ function equalsPlus() {
     displayInternalDisplay.innerText = internalDisplay;
 
     operand = "";
-    displayOperand.innerText = operand;
+    //displayOperand.innerText = operand;
     firstNumber = 0;
-    displayFirstNumber.innerText = firstNumber;
+    //displayFirstNumber.innerText = firstNumber;
     secondNumber = 0;
-    displaySecondNumber.innerText = secondNumber;
+    //displaySecondNumber.innerText = secondNumber;
 }
 
 function equalsMinus() {
@@ -97,11 +97,11 @@ function equalsMinus() {
     displayInternalDisplay.innerText = internalDisplay;
 
     operand = "";
-    displayOperand.innerText = operand;
+    //displayOperand.innerText = operand;
     firstNumber = 0;
-    displayFirstNumber.innerText = firstNumber;
+    //displayFirstNumber.innerText = firstNumber;
     secondNumber = 0;
-    displaySecondNumber.innerText = secondNumber;
+    //displaySecondNumber.innerText = secondNumber;
 }
 
 
@@ -150,7 +150,7 @@ document.getElementById("equals").onclick = function() {
         return;
 
     } else if (operand === "+") { 
-        equalsPlus();    
+        equalsAdd();    
     
     } else if (operand === "-") {
         equalsMinus();   
