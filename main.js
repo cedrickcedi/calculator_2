@@ -26,6 +26,22 @@ function add() {
     internalDisplay = sum;
     displayInternalDisplay.innerText = internalDisplay;
     internalDisplay = "";  
+    secondNumber = 0;
+    displaySecondNumber.innerText = secondNumber;
+}
+
+function addThenMinus(){
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "-";
+    displayOperand.innerText = operand;
+    
+    let sum = firstNumber + secondNumber;        
+    firstNumber = sum;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = sum;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = ""; 
 }
 
 function minus(){
@@ -40,6 +56,20 @@ function minus(){
     internalDisplay = difference;
     displayInternalDisplay.innerText = internalDisplay;
     internalDisplay = "";
+}
+
+function minusThenAdd() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "+";
+    displayOperand.innerText = operand;
+    
+    let difference = firstNumber - secondNumber;        
+    firstNumber = difference;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = difference;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";  
 }
 
 function equalsPlus() {
@@ -62,7 +92,7 @@ function equalsMinus() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
 
-    let difference = firstNumber + secondNumber;
+    let difference = firstNumber - secondNumber;
     internalDisplay = difference;
     displayInternalDisplay.innerText = internalDisplay;
 
@@ -81,14 +111,17 @@ document.getElementById("add").onclick = function() {
     if (internalDisplay === "") {
         return;
 
-    }if (firstNumber === 0) {
+    } if (firstNumber === 0 && operand === "") {
         firstNumber = parseInt(internalDisplay);
         displayFirstNumber.innerText = firstNumber;
         operand = "+";
         displayOperand.innerText = operand;
         internalDisplay = "";
             
-    } else if (firstNumber !== 0){
+    } else if (firstNumber !== 0 && operand === "-") {
+        minusThenAdd();
+
+    } else if (firstNumber !== 0 && operand === "+"){
         add();
     }
 }
@@ -97,14 +130,17 @@ document.getElementById("minus").onclick = function() {
     if (internalDisplay === "") {
         return;
 
-    } if (firstNumber === 0) {
+    } if (firstNumber === 0 && operand === "") {
         firstNumber = parseInt(internalDisplay);
         displayFirstNumber.innerText = firstNumber;
         operand = "-";
         displayOperand.innerText = operand;
         internalDisplay = "";
             
-    } else if (firstNumber !== 0) {
+    } else if (firstNumber !== 0 && operand === "+") {
+        addThenMinus();
+
+    } else if (firstNumber !== 0 && operand === "-") {
         minus();    
     }
 }
@@ -124,7 +160,7 @@ document.getElementById("equals").onclick = function() {
 document.getElementById("clear").onclick = function() {
     firstNumber = 0;
     secondNumber = 0;
-    internalDisplay = 0;
+    internalDisplay = "";
     operand = "";
 
     displayFirstNumber.innerText = firstNumber;
