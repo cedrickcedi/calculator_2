@@ -58,6 +58,20 @@ function addThenMultiplySign() {
     internalDisplay = "";
 }
 
+function addThenDivideSign() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "/";
+    displayOperand.innerText = operand;
+    
+    let sum = firstNumber + secondNumber;        
+    firstNumber = sum;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = sum;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";
+}
+
 function minus(){
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
@@ -90,6 +104,20 @@ function minusThenMultiplySign() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
     operand = "x";
+    displayOperand.innerText = operand;
+    
+    let difference = firstNumber - secondNumber;        
+    firstNumber = difference;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = difference;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";
+}
+
+function minusThenDivideSign() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "/";
     displayOperand.innerText = operand;
     
     let difference = firstNumber - secondNumber;        
@@ -148,6 +176,86 @@ function multiplyThenMinusSign() {
     displaySecondNumber.innerText = secondNumber;
 }
 
+function multiplyThenDivideSign() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "/";
+    displayOperand.innerText = operand;
+    
+    let product = firstNumber * secondNumber;        
+    firstNumber = product;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = product;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";  
+    secondNumber = 0;
+    displaySecondNumber.innerText = secondNumber;
+}
+
+function division() {
+    secondNumber = parseInt (internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "/"
+    displayOperand.innerText = operand;
+
+    let quotient = firstNumber / secondNumber;
+    firstNumber = quotient;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = quotient;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";
+    secondNumber = 0;
+    displaySecondNumber.innerText = secondNumber;
+}
+
+function divisionThenAddSign() {
+    secondNumber = parseInt (internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "+"
+    displayOperand.innerText = operand;
+
+    let quotient = firstNumber / secondNumber;
+    firstNumber = quotient;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = quotient;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";
+    secondNumber = 0;
+    displaySecondNumber.innerText = secondNumber;
+}
+
+function divisionThenMinusSign() {
+    secondNumber = parseInt (internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "-"
+    displayOperand.innerText = operand;
+
+    let quotient = firstNumber / secondNumber;
+    firstNumber = quotient;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = quotient;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";
+    secondNumber = 0;
+    displaySecondNumber.innerText = secondNumber;
+}
+
+function divisionThenMultiplySign() {
+    secondNumber = parseInt (internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "x"
+    displayOperand.innerText = operand;
+
+    let quotient = firstNumber / secondNumber;
+    firstNumber = quotient;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = quotient;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";
+    secondNumber = 0;
+    displaySecondNumber.innerText = secondNumber;
+}
+
 function equalsSum() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
@@ -193,6 +301,19 @@ function equalsProduct() {
     secondNumber = 0;
 }
 
+function equalsQuotient() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    
+    let quotient = firstNumber / secondNumber;
+    internalDisplay = quotient;
+    displayInternalDisplay.innerText = internalDisplay;
+
+    operand = "";
+    firstNumber = 0;
+    secondNumber = 0;
+}
+
 
 //OPERAND SECTION
 
@@ -215,8 +336,11 @@ document.getElementById("add").onclick = function() {
 
     } else if (firstNumber !== 0 && operand === "x") {
         multiplyThenAddSign();
+    
+    } else if (firstNumber !== 0 && operand === "/") {
+        divisionThenAddSign();
     }
-}
+ }
 
 document.getElementById("minus").onclick = function() {  
     if (internalDisplay === "") {
@@ -237,6 +361,9 @@ document.getElementById("minus").onclick = function() {
     
     } else if (firstNumber !== 0 && operand === "x") {
         multiplyThenMinusSign();
+    
+    } else if (firstNumber !== 0 && operand === "/") {
+        divisionThenMinusSign();
     }
 }
 
@@ -259,6 +386,34 @@ document.getElementById("multiply").onclick = function() {
 
     } else if (firstNumber !== 0 && operand === "x") {
         multiplication();
+    
+    } else if (firstNumber !== 0 && operand === "/") {
+        divisionThenMultiplySign();
+    }
+}
+
+document.getElementById("divide").onclick = function() {
+    if (internalDisplay === "") {
+        return;
+    
+    } if (firstNumber === 0 && operand === "") {
+        firstNumber = parseInt(internalDisplay);
+        displayFirstNumber.innerText = firstNumber;
+        operand = "/";
+        displayOperand.innerText = operand;
+        internalDisplay = "";
+    
+    } else if (firstNumber !== 0 && operand === "+") {
+        addThenDivideSign();
+    
+    } else if (firstNumber !== 0 && operand === "-") {
+        minusThenDivideSign();
+    
+    } else if (firstNumber !== 0 && operand === "x") {
+        multiplyThenDivideSign();
+    
+    } else if (firstNumber !== 0 && operand === "/") {
+        divide();
     }
 }
 
@@ -274,6 +429,9 @@ document.getElementById("equals").onclick = function() {
     
     } else if (operand === "x") {
         equalsProduct();
+    
+    } else if (operand === "/") {
+        equalsQuotient();
     }
 }
 
