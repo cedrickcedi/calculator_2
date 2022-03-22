@@ -440,16 +440,17 @@ document.getElementById("clear-entry").onclick = function() {
 
 document.getElementById("clear").onclick = function() {
     firstNumber = "First Number";
+    operand = "Operand";
     secondNumber = "Second Numner";
     internalDisplay = "Display";
-    operand = "";
 
     displayFirstNumber.innerText = firstNumber;
     displaySecondNumber.innerText = secondNumber;
     displayInternalDisplay.innerText = internalDisplay;
     displayOperand.innerText = operand;
-    firstNumber = "";
-    secondNumber = "";
+    firstNumber = 0;
+    operand = "";
+    secondNumber = 0;
     internalDisplay = "";
 }
 
