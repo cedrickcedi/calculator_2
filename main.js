@@ -506,3 +506,17 @@ document.getElementById("number0").onclick = function() {
     internalDisplay += "0";
     display.innerText = internalDisplay;
 }
+
+document.getElementById("decimal").onclick = function() {
+    if (internalDisplay === "." && displayInternalDisplay.includes(".")) {
+        return;
+    
+    } else if (internalDisplay === "") { 
+        internalDisplay += "0.";
+        display.innerText = internalDisplay;
+    
+    } else if (internalDisplay !== "") {
+        internalDisplay += ".";
+        display.innerText = internalDisplay; 
+    }
+}
