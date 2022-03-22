@@ -441,7 +441,7 @@ document.getElementById("clear-entry").onclick = function() {
 document.getElementById("clear").onclick = function() {
     firstNumber = "First Number";
     operand = "Operand";
-    secondNumber = "Second Numner";
+    secondNumber = "Second Number";
     internalDisplay = "Display";
 
     displayFirstNumber.innerText = firstNumber;
