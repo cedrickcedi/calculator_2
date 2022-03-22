@@ -432,16 +432,25 @@ document.getElementById("equals").onclick = function() {
     }
 }
 
-document.getElementById("clear").onclick = function() {
-    firstNumber = 0;
-    secondNumber = 0;
+document.getElementById("clear-entry").onclick = function() {
+    internalDisplay = 0;
+    displayInternalDisplay.innerText = internalDisplay;
     internalDisplay = "";
+}
+
+document.getElementById("clear").onclick = function() {
+    firstNumber = "First Number";
+    secondNumber = "Second Numner";
+    internalDisplay = "Display";
     operand = "";
 
     displayFirstNumber.innerText = firstNumber;
     displaySecondNumber.innerText = secondNumber;
     displayInternalDisplay.innerText = internalDisplay;
     displayOperand.innerText = operand;
+    firstNumber = "";
+    secondNumber = "";
+    internalDisplay = "";
 }
 
 
