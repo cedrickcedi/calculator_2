@@ -30,7 +30,7 @@ function add() {
     displaySecondNumber.innerText = secondNumber;
 }
 
-function addThenMinus(){
+function addThenMinusSign(){
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
     operand = "-";
@@ -44,7 +44,7 @@ function addThenMinus(){
     internalDisplay = ""; 
 }
 
-function addThenMultiply() {
+function addThenMultiplySign() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
     operand = "x";
@@ -72,7 +72,7 @@ function minus(){
     internalDisplay = "";
 }
 
-function minusThenAdd() {
+function minusThenAddSign() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
     operand = "+";
@@ -86,16 +86,16 @@ function minusThenAdd() {
     internalDisplay = "";  
 }
 
-function minusThenMultiply() {
+function minusThenMultiplySign() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
-    operand = "-";
+    operand = "x";
     displayOperand.innerText = operand;
     
-    let product = firstNumber * secondNumber;        
-    firstNumber = product;
+    let difference = firstNumber - secondNumber;        
+    firstNumber = difference;
     displayFirstNumber.innerText = firstNumber;
-    internalDisplay = product;
+    internalDisplay = difference;
     displayInternalDisplay.innerText = internalDisplay;
     internalDisplay = "";
 }
@@ -104,6 +104,38 @@ function multiplication() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
     operand = "x";
+    displayOperand.innerText = operand;
+    
+    let product = firstNumber * secondNumber;        
+    firstNumber = product;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = product;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";  
+    secondNumber = 0;
+    displaySecondNumber.innerText = secondNumber;
+}
+
+function multiplyThenAddSign() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "+";
+    displayOperand.innerText = operand;
+    
+    let product = firstNumber * secondNumber;        
+    firstNumber = product;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = product;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";  
+    secondNumber = 0;
+    displaySecondNumber.innerText = secondNumber;
+}
+
+function multiplyThenMinusSign() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "-";
     displayOperand.innerText = operand;
     
     let product = firstNumber * secondNumber;        
@@ -175,11 +207,14 @@ document.getElementById("add").onclick = function() {
         displayOperand.innerText = operand;
         internalDisplay = "";
             
-    } else if (firstNumber !== 0 && operand === "-") {
-        minusThenAdd();
-
     } else if (firstNumber !== 0 && operand === "+"){
         add();
+    
+    } else if (firstNumber !== 0 && operand === "-") {
+        minusThenAddSign();
+
+    } else if (firstNumber !== 0 && operand === "x") {
+        multiplyThenAddSign();
     }
 }
 
@@ -195,10 +230,13 @@ document.getElementById("minus").onclick = function() {
         internalDisplay = "";
             
     } else if (firstNumber !== 0 && operand === "+") {
-        addThenMinus();
+        addThenMinusSign();
 
     } else if (firstNumber !== 0 && operand === "-") {
         minus();    
+    
+    } else if (firstNumber !== 0 && operand === "x") {
+        multiplyThenMinusSign();
     }
 }
 
@@ -214,8 +252,11 @@ document.getElementById("multiply").onclick = function() {
         internalDisplay = "";
     
     } else if (firstNumber !== 0 && operand === "+"){
-        addThenMultiply();
+        addThenMultiplySign();
     
+    } else if (firstNumber !== 0 && operand === "-") {
+        minusThenMultiplySign();
+
     } else if (firstNumber !== 0 && operand === "x") {
         multiplication();
     }
