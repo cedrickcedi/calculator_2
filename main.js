@@ -281,11 +281,8 @@ function equalsDifference() {
     displayInternalDisplay.innerText = internalDisplay;
 
     operand = "";
-    //displayOperand.innerText = operand;
     firstNumber = 0;
-    //displayFirstNumber.innerText = firstNumber;
     secondNumber = 0;
-    //displaySecondNumber.innerText = secondNumber;
 }
 
 function equalsProduct() {
