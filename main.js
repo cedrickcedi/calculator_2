@@ -44,6 +44,20 @@ function addThenMinus(){
     internalDisplay = ""; 
 }
 
+function addThenMultiply() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "x";
+    displayOperand.innerText = operand;
+    
+    let sum = firstNumber + secondNumber;        
+    firstNumber = sum;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = sum;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";
+}
+
 function minus(){
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
@@ -72,7 +86,37 @@ function minusThenAdd() {
     internalDisplay = "";  
 }
 
-function equalsAdd() {
+function minusThenMultiply() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "-";
+    displayOperand.innerText = operand;
+    
+    let product = firstNumber * secondNumber;        
+    firstNumber = product;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = product;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";
+}
+
+function multiplication() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    operand = "x";
+    displayOperand.innerText = operand;
+    
+    let product = firstNumber * secondNumber;        
+    firstNumber = product;
+    displayFirstNumber.innerText = firstNumber;
+    internalDisplay = product;
+    displayInternalDisplay.innerText = internalDisplay;
+    internalDisplay = "";  
+    secondNumber = 0;
+    displaySecondNumber.innerText = secondNumber;
+}
+
+function equalsSum() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
 
@@ -88,7 +132,7 @@ function equalsAdd() {
     //displaySecondNumber.innerText = secondNumber;
 }
 
-function equalsMinus() {
+function equalsDifference() {
     secondNumber = parseInt(internalDisplay);
     displaySecondNumber.innerText = secondNumber;
 
@@ -102,6 +146,19 @@ function equalsMinus() {
     //displayFirstNumber.innerText = firstNumber;
     secondNumber = 0;
     //displaySecondNumber.innerText = secondNumber;
+}
+
+function equalsProduct() {
+    secondNumber = parseInt(internalDisplay);
+    displaySecondNumber.innerText = secondNumber;
+    
+    let product = firstNumber * secondNumber;
+    internalDisplay = product;
+    displayInternalDisplay.innerText = internalDisplay;
+
+    operand = "";
+    firstNumber = 0;
+    secondNumber = 0;
 }
 
 
@@ -145,15 +202,37 @@ document.getElementById("minus").onclick = function() {
     }
 }
 
+document.getElementById("multiply").onclick = function() {
+    if (internalDisplay === "") {
+        return;
+
+    } if (firstNumber === 0 && operand === "") {
+        firstNumber = parseInt(internalDisplay);
+        displayFirstNumber.innerText = firstNumber;
+        operand = "x";
+        displayOperand.innerText = operand;
+        internalDisplay = "";
+    
+    } else if (firstNumber !== 0 && operand === "+"){
+        addThenMultiply();
+    
+    } else if (firstNumber !== 0 && operand === "x") {
+        multiplication();
+    }
+}
+
 document.getElementById("equals").onclick = function() {
     if (internalDisplay === "") {
         return;
 
     } else if (operand === "+") { 
-        equalsAdd();    
+        equalsSum();    
     
     } else if (operand === "-") {
-        equalsMinus();   
+        equalsDifference();   
+    
+    } else if (operand === "x") {
+        equalsProduct();
     }
 }
 
