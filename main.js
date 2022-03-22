@@ -496,4 +496,3 @@ document.getElementById("number0").onclick = function() {
     internalDisplay += "0";
     display.innerText = internalDisplay;
 }
-
