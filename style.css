@@ -32,8 +32,8 @@ body {
   background-color: rgba(255, 255, 255, .9);
 }
 
-.span-three {
-  grid-column: span 3; /* specifies a grid item's size and location in a grid layout */
+.span-two {
+  grid-column: span 2;
 }
 
 .output {
