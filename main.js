@@ -442,7 +442,7 @@ document.getElementById("clear").onclick = function() {
     firstNumber = "First Number";
     operand = "Operand";
     secondNumber = "Second Number";
-    internalDisplay = "Display";
+    internalDisplay = 0;
 
     displayFirstNumber.innerText = firstNumber;
     displaySecondNumber.innerText = secondNumber;
@@ -508,6 +508,8 @@ document.getElementById("number0").onclick = function() {
 }
 
 document.getElementById("decimal").onclick = function() {
-        internalDisplay += ".";
-        display.innerText = internalDisplay;
+        if (!internalDisplay.includes(".")) {
+            internalDisplay += ".";
+            display.innerText = internalDisplay;
+        }
 }
