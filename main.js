@@ -508,8 +508,12 @@ document.getElementById("number0").onclick = function() {
 }
 
 document.getElementById("decimal").onclick = function() {
-        if (!internalDisplay.includes(".")) {
-            internalDisplay += ".";
-            display.innerText = internalDisplay;
-        }
+    if (!internalDisplay.includes(".") && internalDisplay === "") {
+        internalDisplay += "0.";
+        display.innerText = internalDisplay;
+    
+    } else if (!internalDisplay.includes(".") && internalDisplay !== "") {
+        internalDisplay += ".";
+        displayInternalDisplay.innerText = internalDisplay;
+    }
 }
